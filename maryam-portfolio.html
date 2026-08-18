@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Maryam Nisar — Product Manager & Storyteller</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0f0e0e;
+            --bg-secondary: #161414;
+            --bg-card: #1a1818;
+            --border: #2e2a2a;
+            --text-primary: #f8f4f0;
+            --text-secondary: #b8b0a8;
+            --accent: #d4a574;
+            --accent-soft: #e8c9a8;
+            --accent-glow: rgba(212, 165, 116, 0.12);
+            --blush: #c9a9a0;
+            --blush-light: rgba(201, 169, 160, 0.08);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.02;
+            z-index: 9999;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .bloom {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 14, 14, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+        }
+
+        .logo span {
+            font-family: 'Great Vibes', cursive;
+            color: var(--accent);
+            font-size: 1.3em;
+            margin-left: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transition: var(--transition);
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-soft);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-menu span {
+            width: 22px;
+            height: 1px;
+            background: var(--text-primary);
+            transition: var(--transition);
+            display: block;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 5% 4rem;
+            overflow: hidden;
+        }
+
+        .hero .bloom-1 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: -10%;
+            right: -5%;
+        }
+
+        .hero .bloom-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--blush-light) 0%, transparent 70%);
+            bottom: 10%;
+            left: -5%;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            text-align: center;
+            z-index: 1;
+            animation: fadeInUp 1.2s ease-out both;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 0.6rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 400;
+            background: rgba(212, 165, 116, 0.05);
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 300;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero h1 em {
+            font-family: 'Great Vibes', cursive;
+            color: var(--accent);
+            font-style: normal;
+            font-size: 1.3em;
+            display: inline-block;
+            transform: rotate(-2deg);
+            margin: 0 0.1em;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            border: 1px solid transparent;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent) 0%, #b8936f 100%);
+            color: var(--bg-primary);
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(212, 165, 116, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(212, 165, 116, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--blush);
+            color: var(--accent-soft);
+            background: var(--blush-light);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .section-tag {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            display: block;
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 300;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* About */
+        .about {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .about .bloom-3 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--blush-light) 0%, transparent 70%);
+            top: 20%;
+            right: -10%;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.8rem;
+            font-size: 1rem;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        .about-text p:first-child::first-letter {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.15em;
+            color: var(--accent);
+            font-weight: 300;
+        }
+
+        .about-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .headshot-frame {
+            position: relative;
+            width: 280px;
+            height: 350px;
+            border-radius: 140px 140px 20px 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, #1e1c1c 0%, #2a2626 100%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            transition: var(--transition);
+        }
+
+        .headshot-frame:hover {
+            border-color: var(--blush);
+            transform: translateY(-5px);
+        }
+
+        .headshot-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+
+        .headshot-frame:hover img {
+            opacity: 1;
+        }
+
+        .headshot-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            gap: 1rem;
+        }
+
+        .headshot-placeholder svg {
+            width: 48px;
+            height: 48px;
+            opacity: 0.3;
+            stroke: var(--accent);
+        }
+
+        .headshot-placeholder span {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.5;
+        }
+
+        .headshot-frame::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 142px 142px 22px 22px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent), transparent, var(--blush));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            padding: 2.2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            border-color: var(--blush);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-item:hover::before {
+            opacity: 0.5;
+        }
+
+        .stat-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+            font-weight: 300;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--border), transparent);
+        }
+
+        .timeline-item {
+            padding: 0 3rem 4rem;
+            position: relative;
+            width: 50%;
+            opacity: 1;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-item:nth-child(1) { animation: fadeInUp 0.8s ease-out 0.1s both; }
+        .timeline-item:nth-child(2) { animation: fadeInUp 0.8s ease-out 0.2s both; }
+        .timeline-item:nth-child(3) { animation: fadeInUp 0.8s ease-out 0.3s both; }
+        .timeline-item:nth-child(4) { animation: fadeInUp 0.8s ease-out 0.4s both; }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            top: 0.5rem;
+        }
+
+        .timeline-item:nth-child(odd)::before { right: -8px; }
+        .timeline-item:nth-child(even)::before { left: -8px; }
+
+        .timeline-header { margin-bottom: 0.8rem; }
+        .timeline-role {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        .timeline-company {
+            color: var(--accent-soft);
+            font-weight: 400;
+            font-size: 0.95rem;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+            display: block;
+        }
+        .timeline-desc {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+        .timeline-desc ul { list-style: none; }
+        .timeline-desc li {
+            position: relative;
+            margin-bottom: 0.4rem;
+        }
+        .timeline-item:nth-child(odd) .timeline-desc li { padding-right: 1.2rem; }
+        .timeline-item:nth-child(even) .timeline-desc li { padding-left: 1.2rem; }
+        .timeline-desc li::before {
+            content: '✦';
+            color: var(--accent);
+            font-size: 0.6rem;
+            position: absolute;
+            top: 0.3rem;
+        }
+        .timeline-item:nth-child(odd) .timeline-desc li::before { right: 0; }
+        .timeline-item:nth-child(even) .timeline-desc li::before { left: 0; }
+
+        /* Projects */
+        .projects-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 6rem 0;
+        }
+        .projects-section .section-header {
+            padding: 0 5%;
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 0 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            opacity: 1;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.15s; }
+        .project-card:nth-child(3) { animation-delay: 0.2s; }
+        .project-card:nth-child(4) { animation-delay: 0.25s; }
+        .project-card:nth-child(5) { animation-delay: 0.3s; }
+        .project-card:nth-child(6) { animation-delay: 0.35s; }
+        .project-card:nth-child(7) { animation-delay: 0.4s; }
+        .project-card:nth-child(8) { animation-delay: 0.45s; }
+        .project-card:nth-child(9) { animation-delay: 0.5s; }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--blush);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1e1c1c 0%, #2a2626 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .project-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg-card) 0%, transparent 60%);
+            z-index: 1;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: var(--transition);
+            position: relative;
+            z-index: 0;
+        }
+        .project-card:hover .project-image img {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        .project-placeholder {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--border);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            z-index: 0;
+            opacity: 0.5;
+            position: absolute;
+        }
+
+        .project-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        .project-tag {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: var(--blush-light);
+            color: var(--accent);
+            font-size: 0.7rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        .project-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .project-desc strong {
+            color: var(--accent-soft);
+            font-weight: 500;
+        }
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+        .project-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            transition: var(--transition);
+            background: rgba(212, 165, 116, 0.05);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .project-links a:hover {
+            background: rgba(212, 165, 116, 0.15);
+            border-color: var(--accent);
+            color: var(--accent-soft);
+        }
+        .project-stats {
+            margin-top: 1.25rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        .stats-table thead th {
+            text-align: left;
+            color: var(--accent-soft);
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+        .stats-table tbody td {
+            padding: 0.6rem 0.75rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid rgba(46, 42, 42, 0.5);
+            font-size: 0.85rem;
+        }
+        .stats-table tbody tr:last-child td { border-bottom: none; }
+        .stats-table tbody td strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        .stats-table tbody tr:hover {
+            background: rgba(212, 165, 116, 0.03);
+        }
+
+        /* AI Videos */
+        .ai-videos-section {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 6rem 0;
+        }
+        .ai-videos-section .section-header {
+            padding: 0 5%;
+            max-width: 1100px;
+            margin: 0 auto 4rem;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 0 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .video-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 16 / 9;
+            display: block;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            text-decoration: none;
+            background: linear-gradient(135deg, #1e1c1c 0%, #2a2626 100%);
+        }
+        .video-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blush);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        .video-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        .video-card:hover img { opacity: 1; }
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 14, 14, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .video-card:hover .video-overlay { opacity: 1; }
+        .video-overlay svg {
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+            width: 48px;
+            height: 48px;
+        }
+        .video-divider {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--accent-soft);
+            margin: 3rem auto 1.5rem;
+            padding: 0 5%;
+            max-width: 1100px;
+            font-style: italic;
+        }
+
+        /* Skills */
+        .skills {
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+        .skills .bloom-4 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            bottom: -10%;
+            left: -5%;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .skill-category {
+            padding: 2.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            transition: var(--transition);
+            position: relative;
+            opacity: 1;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        .skill-category:nth-child(1) { animation-delay: 0.1s; }
+        .skill-category:nth-child(2) { animation-delay: 0.15s; }
+        .skill-category:nth-child(3) { animation-delay: 0.2s; }
+        .skill-category:nth-child(4) { animation-delay: 0.25s; }
+
+        .skill-category:hover {
+            border-color: var(--blush);
+            transform: translateY(-4px);
+        }
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 2rem;
+            right: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+        .skill-category h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1.8rem;
+            color: var(--accent-soft);
+            font-weight: 400;
+            font-style: italic;
+        }
+        .skill-list { list-style: none; }
+        .skill-list li {
+            padding: 0.7rem 0;
+            border-bottom: 1px solid rgba(46, 42, 42, 0.5);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-weight: 300;
+        }
+        .skill-list li:last-child { border-bottom: none; }
+        .skill-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.7;
+        }
+
+        /* Contact */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 1;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+        .contact-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 2rem auto;
+        }
+        .contact-email {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: var(--accent);
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem 0;
+            transition: var(--transition);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+        }
+        .contact-email:hover {
+            color: var(--accent-soft);
+            letter-spacing: 0.05em;
+        }
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+        .contact-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            position: relative;
+            font-weight: 400;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .contact-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        .contact-links a:hover {
+            color: var(--text-primary);
+        }
+        .contact-links a:hover::after {
+            width: 100%;
+        }
+        .contact-links svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent);
+            fill: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 4rem 5%;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            border-top: 1px solid var(--border);
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+        footer .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.5rem;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* iOS Safe Visibility Fallback */
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: flex; }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .about-visual { order: -1; }
+            .headshot-frame {
+                width: 220px;
+                height: 280px;
+            }
+            .hero h1 { font-size: 2.6rem; }
+            .hero { padding-top: 6rem; }
+            .timeline::before { left: 20px; }
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 3rem !important;
+                padding-right: 0 !important;
+                text-align: left !important;
+            }
+            .timeline-item::before {
+                left: 14px !important;
+                right: auto !important;
+            }
+            .timeline-item:nth-child(odd) .timeline-desc li {
+                padding-right: 0;
+                padding-left: 1.2rem;
+            }
+            .timeline-item:nth-child(odd) .timeline-desc li::before {
+                right: auto;
+                left: 0;
+            }
+            section { padding: 4rem 5%; }
+            .projects-section, .ai-videos-section { padding: 4rem 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">Maryam<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#ai-videos">AI Videos</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="bloom bloom-1"></div>
+        <div class="bloom bloom-2"></div>
+        <div class="hero-content">
+            <div class="hero-tag">Product Manager & Content Strategist</div>
+            <h1>I was born to <em>tell stories</em> through products.</h1>
+            <p>Three years shaping digital experiences across telecom, healthcare, and media. From the first spark of an idea to the final pixel, I lead with intuition and strategy.</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="bloom bloom-3"></div>
+        <div class="section-header">
+            <span class="section-tag">About</span>
+            <h2 class="section-title">Where psychology meets poise.</h2>
+            <p class="section-subtitle">Understanding the human heart is at the center of every product I build. With an MSc in Psychology and a storyteller's soul, I create experiences that feel inevitable.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am a Product Manager with over 3 years of experience across telecom, digital media, and healthcare platforms. I specialize in managing the end-to-end product lifecycle, from ideation and market research to launch, QA, and performance optimization.</p>
+                <p>Currently leading product and content at Lafz Digital, where I guide a team of twenty creatives across editorial, production, and design. My expertise lies in leading cross-functional teams, executing data-driven content strategies, and delivering high-impact digital products.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">3+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Team Members Led</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5.8%</div>
+                        <div class="stat-label">Push Notification CTR</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3M+</div>
+                        <div class="stat-label">Users Reached</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-visual">
+                <div class="headshot-frame">
+                    <div class="headshot-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span>Your Photo</span>
+                    </div>
+                    <!-- <img src="your-headshot.jpg" alt="Maryam Nisar"> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-header">
+            <span class="section-tag">Experience</span>
+            <h2 class="section-title">The chapters so far.</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Product Manager</div>
+                    <div class="timeline-company">Lafz Digital & Ideation</div>
+                    <div class="timeline-date">Apr 2025 — Present</div>
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Led cross-functional team of 20+ across editorial, production, design, and social media</li>
+                        <li>Managed end-to-end product lifecycle of Lafz digital platforms (web & mobile)</li>
+                        <li>Oversaw website development, QA, and UX improvements</li>
+                        <li>Directed content strategy, scripting, and production of digital shows, reels, and campaigns</li>
+                        <li>Executed digital campaigns and national/international day content to boost brand engagement</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Content Strategist & Product Ideation Associate</div>
+                    <div class="timeline-company">Ideation</div>
+                    <div class="timeline-date">Nov 2024 — Present</div>
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Developed content strategies for multiple digital platforms (OTT & telecom products)</li>
+                        <li>Created and managed content for Zong TV, Binjee, Whatsin, and Deikho</li>
+                        <li>Designed and executed push notification campaigns achieving 5.8% CTR across 3M+ users</li>
+                        <li>Produced daily news content for telecom platforms including Jazz and Telenor</li>
+                        <li>Collaborated in R&D and presented product ideas directly to CEO and leadership</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Content & Digital Strategy Specialist</div>
+                    <div class="timeline-company">Switch</div>
+                    <div class="timeline-date">Jan 2021 — Oct 2024</div>
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Developed SEO-optimized content across SMS, IVR, and digital platforms</li>
+                        <li>Created content for Mobile Value-Added Services (VAS) products across the telecom sector</li>
+                        <li>Managed YouTube and digital channels, improving content visibility and engagement</li>
+                        <li>Contributed to telecom projects including Telenor Socialive and Jazz Youth platforms</li>
+                        <li>Led QA for 400+ educational videos for Seekhtay Jao</li>
+                        <li>Voiceover artist for Jazz, Zong, and Telenor campaigns</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-role">Senior Content Creator</div>
+                    <div class="timeline-company">Zoya Health App</div>
+                    <div class="timeline-date">2020 — 2021</div>
+                </div>
+                <div class="timeline-desc">
+                    <ul>
+                        <li>Finalist, WE Empower UN SDG Challenge 2020</li>
+                        <li>Led Pakistan's first women's health app from QA/testing and UI optimization to content strategy</li>
+                        <li>Created campaigns on mental health, SRH, and domestic violence awareness</li>
+                        <li>Coordinated with designers, animators, and production teams</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <div class="projects-section" id="projects">
+        <div class="section-header">
+            <span class="section-tag">Selected Work</span>
+            <h2 class="section-title">Creations I've nurtured.</h2>
+            <p class="section-subtitle">From OTT platforms to AI-powered legal tools—each product is a story carefully composed, from the first note to the final frame.</p>
+        </div>
+        <div class="projects-grid">
+            <!-- Lafz -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">Lafz</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Digital Media Platform</span>
+                    <h3 class="project-title">Lafz</h3>
+                    <p class="project-desc"><strong>Project Head</strong> — spearheaded a 22-person cross-functional team across scripting, pre-production, post-production, and analytics. Owned the entire content pipeline from concept to final delivery.</p>
+                    <div class="project-links">
+                        <a href="https://lafz.com.pk" target="_blank" rel="noopener">Website</a>
+                        <a href="https://www.youtube.com/@Lafz.Media.Official" target="_blank" rel="noopener">YouTube</a>
+                        <a href="https://www.instagram.com/lafz_digital/" target="_blank" rel="noopener">Instagram</a>
+                    </div>
+                    <div class="project-stats">
+                        <table class="stats-table">
+                            <thead>
+                                <tr><th>Platform</th><th>Followers</th><th>Views (90 Days)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Instagram</td><td><strong>144K</strong></td><td><strong>78.3M</strong></td></tr>
+                                <tr><td>Facebook</td><td><strong>38K</strong></td><td><strong>8.5M</strong></td></tr>
+                                <tr><td>YouTube</td><td><strong>6,758</strong></td><td><strong>6.2M</strong></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zong TV -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://lh3.googleusercontent.com/d/1DnmSmqc1GrYqtRVUqbCHu-sVd3l-AlDH" alt="Zong TV" onerror="this.style.display='none'">
+                    <div class="project-placeholder" style="display:none">ZTV</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">OTT / VOD · Partner: Zong</span>
+                    <h3 class="project-title">Zong TV</h3>
+                    <p class="project-desc"><strong>Product Manager</strong> — led product operations for a 40+ live channel OTT/VOD platform. Drove QA, UI/UX improvements, content strategy, and analytics. Boosted average session engagement from 2m5s to 2m39s.</p>
+                    <div class="project-links">
+                        <a href="https://zongmobiletv.com/" target="_blank" rel="noopener">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deikho -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://lh3.googleusercontent.com/d/1GT0Y2PrwwbFjM4U1hyR5fTRVLR7D-N-j" alt="Deikho" onerror="this.style.display='none'">
+                    <div class="project-placeholder" style="display:none">DK</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">OTT Platform · Partner: Jazz</span>
+                    <h3 class="project-title">Deikho</h3>
+                    <p class="project-desc"><strong>Product Manager</strong> — owned the product end-to-end, from QA/testing and UI/UX optimization to content management, client resolution, and Google Analytics. Drove engagement for Pakistan's premium OTT.</p>
+                    <p class="project-desc" style="margin-top:0.5rem; color:var(--accent-soft)"><strong>716K MAU · 9m46s avg session</strong></p>
+                    <div class="project-links">
+                        <a href="https://deikho.com/" target="_blank" rel="noopener">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trendin -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">TR</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">OTT · Partner: Telenor</span>
+                    <h3 class="project-title">Trendin</h3>
+                    <p class="project-desc"><strong>Product Lead</strong> — reimagined lifestyle OTT covering fashion, food, fitness, and entertainment. Drove the iOS launch with complete DCB (Direct Carrier Billing) integration, delivering seamless monetization from day one.</p>
+                    <div class="project-links">
+                        <a href="https://zongmobiletv.com/trendin" target="_blank" rel="noopener">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Whatsin -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">WH</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">OTT · Partner: Telenor</span>
+                    <h3 class="project-title">Whatsin</h3>
+                    <p class="project-desc"><strong>Product Manager</strong> — owned content management, UI improvements, and technical development for this lifestyle OTT. Defined the dual content pipeline strategy with Trendin, creating a scalable content ecosystem.</p>
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.lifestyle.whatsin" target="_blank" rel="noopener">Play Store</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Akhbaar -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">MA</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Media · Partner: Ufone</span>
+                    <h3 class="project-title">Mobile Akhbaar</h3>
+                    <p class="project-desc"><strong>Product Manager</strong> — led digital news aggregation delivering real-time updates across politics, sports, entertainment, and tech. Built a fast, reliable content pipeline ensuring users get breaking news instantly.</p>
+                    <div class="project-links">
+                        <a href="https://mobileakhbaar.com/" target="_blank" rel="noopener">Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kacheri -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="image(2).png" alt="Kacheri AI Legal Platform" onerror="this.style.display='none'">
+                    <div class="project-placeholder" style="display:none">KC</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">AI Legal Platform</span>
+                    <h3 class="project-title">Kacheri</h3>
+                    <p class="project-desc"><strong>Product Lead</strong> — conceptualized and defined an AI-powered legal marketplace connecting users with lawyers. Built an intelligent legal chatbot for instant query resolution, document simplification, automated e-form generation, precedent retrieval, case decoding, and hearing reminders.</p>
+                </div>
+            </div>
+
+            <!-- AssistMe AI -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://lh3.googleusercontent.com/d/1hzE918ZZiyrM4uoik9j4GNBAjELAuqsL" alt="AssistMe AI" onerror="this.style.display='none'">
+                    <div class="project-placeholder" style="display:none">AI</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">AI for Feature Phones</span>
+                    <h3 class="project-title">AssistMe AI</h3>
+                    <p class="project-desc"><strong>Product Strategist</strong> — designed an AI-based solution leveraging SMS, USSD, and IVR to bring smart assistance to feature phone users. Conducted deep market research and defined a product roadmap that bridges the digital divide.</p>
+                </div>
+            </div>
+
+            <!-- Digital Signage -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="https://lh3.googleusercontent.com/d/1ng3CGCjUPny-MOvzpuegEHSrx2lzpBuZ" alt="Digital Signage" onerror="this.style.display='none'">
+                    <div class="project-placeholder" style="display:none">DS</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Cloud / AI</span>
+                    <h3 class="project-title">Digital Signage</h3>
+                    <p class="project-desc">AI-powered cloud solution for managing and scheduling live content, real-time news feeds, and exclusive media broadcasts. Conducted market research and created presentation decks.</p>
+                </div>
+            </div>
+
+            <!-- Zoya Health App -->
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">ZH</div>
+                </div>
+                <div class="project-content">
+                    <span class="project-tag">Healthcare App · UN SDG Finalist</span>
+                    <h3 class="project-title">Zoya Health App</h3>
+                    <p class="project-desc"><strong>Product Manager</strong> — led Pakistan's first women's health app. Owned the product from QA/testing and UI optimization to content strategy, blog creation, video production, and USP definition. Drove campaigns on women's health, mental health, and social awareness.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Videos -->
+    <div class="ai-videos-section" id="ai-videos">
+        <div class="section-header">
+            <span class="section-tag">Creative Work</span>
+            <h2 class="section-title">AI Video Projects.</h2>
+            <p class="section-subtitle">A collection of AI-generated video projects. Some handled end-to-end, others in close collaboration with professional editors.</p>
+        </div>
+
+        <div class="video-divider">End-to-End (AI Generation → Video Editing)</div>
+        <div class="video-grid">
+            <a href="https://youtu.be/mo2i6cCcM10" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/mo2i6cCcM10/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/mo2i6cCcM10/mqdefault.jpg'" 
+                     alt="AI Video 1" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=pR98y4jnNE8" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/pR98y4jnNE8/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/pR98y4jnNE8/mqdefault.jpg'" 
+                     alt="AI Video 2" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/watch?v=dhv_8802Dio" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/dhv_8802Dio/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/dhv_8802Dio/mqdefault.jpg'" 
+                     alt="AI Video 3" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+            <a href="https://youtu.be/5mz7OvdFA4U" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/5mz7OvdFA4U/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/5mz7OvdFA4U/mqdefault.jpg'" 
+                     alt="AI Video 4" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+            <a href="https://youtu.be/U8lP682huLQ" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/U8lP682huLQ/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/U8lP682huLQ/mqdefault.jpg'" 
+                     alt="AI Video 5" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+            <a href="https://youtu.be/IRGV_iIN67E" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/IRGV_iIN67E/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/IRGV_iIN67E/mqdefault.jpg'" 
+                     alt="AI Video 6" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+        </div>
+
+        <div class="video-divider">AI Generation & Editorial Assistance</div>
+        <div class="video-grid">
+            <a href="https://www.youtube.com/watch?v=0ALGYydqcZU" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/0ALGYydqcZU/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/0ALGYydqcZU/mqdefault.jpg'" 
+                     alt="AI Video 7" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+            <a href="https://youtu.be/qauMjUkkL8E" target="_blank" rel="noopener" class="video-card">
+                <img src="https://img.youtube.com/vi/qauMjUkkL8E/hqdefault.jpg" 
+                     onerror="this.src='https://img.youtube.com/vi/qauMjUkkL8E/mqdefault.jpg'" 
+                     alt="AI Video 8" loading="lazy">
+                <div class="video-overlay">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="bloom bloom-4"></div>
+        <div class="section-header">
+            <span class="section-tag">Expertise</span>
+            <h2 class="section-title">The tools of my craft.</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Product & Strategy</h3>
+                <ul class="skill-list">
+                    <li>Product Lifecycle Management</li>
+                    <li>Market Research & Audience Insights</li>
+                    <li>Feature Prioritization & Roadmapping</li>
+                    <li>Digital Product Decks & Presentations</li>
+                    <li>Cross-Functional Team Leadership</li>
+                    <li>Stakeholder Management</li>
+                    <li>Agile & Sprint Planning</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Content & Creative</h3>
+                <ul class="skill-list">
+                    <li>Content Strategy & Curation</li>
+                    <li>Scriptwriting & Storytelling</li>
+                    <li>SEO & Digital Management</li>
+                    <li>Social Media Campaigns</li>
+                    <li>Voiceover & Audio Production</li>
+                    <li>Push Notification Campaigns</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Analytics & Tools</h3>
+                <ul class="skill-list">
+                    <li>Firebase Analytics</li>
+                    <li>Google Analytics</li>
+                    <li>KPI Tracking</li>
+                    <li>ClickUp & Slack</li>
+                    <li>Metricool</li>
+                    <li>CMS Management</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Technical & Industries</h3>
+                <ul class="skill-list">
+                    <li>QA for iOS / Android / Web</li>
+                    <li>Mobile VAS (SMS / IVR / USSD)</li>
+                    <li>OTT / VOD & Digital Media</li>
+                    <li>HealthTech & Wellness</li>
+                    <li>LegalTech & AI</li>
+                    <li>EdTech & E-Learning</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="contact-content">
+            <span class="section-tag">Contact</span>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">Let's write the next chapter.</h2>
+            <p class="section-subtitle" style="margin: 0 auto 1rem;">Open to product management, content strategy, and digital transformation opportunities.</p>
+            <div class="contact-divider"></div>
+            <a href="mailto:meryemzehra275@gmail.com" class="contact-email">meryemzehra275@gmail.com</a>
+            <div class="contact-links">
+                <a href="tel:+923495070400">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                    +92 349 5070400
+                </a>
+                <a href="https://www.linkedin.com/in/maryam-nisar-471562179?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    LinkedIn
+                </a>
+                <a href="#">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Islamabad, Pakistan
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span class="signature">Maryam</span>
+        <p> Crafted with intention and a little bit of magic.</p>
+    </footer>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 14, 14, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 14, 14, 0.9)';
+            }
+        });
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'var(--bg-primary)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.gap = '1.5rem';
+                navLinks.style.zIndex = '999';
+            }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
